@@ -10,7 +10,7 @@ export default function AboutPage() {
           professionisti in cerca di soluzioni innovative.
         </p>
         <p style={{ marginTop: '1rem', lineHeight: '1.6' }}>
-          Dall'idea iniziale fino alla presentazione finale, seguo ogni fase del lavoro con 
+          Dall&apos;idea iniziale fino alla presentazione finale, seguo ogni fase del lavoro con 
           professionalità, cura del dettaglio e una costante ricerca di nuove tecnologie.
         </p>
       </section>
