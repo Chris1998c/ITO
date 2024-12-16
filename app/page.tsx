@@ -1,4 +1,5 @@
 import ProgettiPage from './progetti/page';
+import Image from 'next/image';
 
 export default function HomePage() {
   return (
@@ -15,12 +16,14 @@ export default function HomePage() {
 
       {/* Immagine sotto */}
       <div className="relative h-screen bg-black flex items-center justify-center">
-        <img
-          src="/hero.jpg"
-          alt="Hero Image"
-          className="w-full h-full object-contain mt-[-7rem]"
-        />
-      </div>
+  <Image
+    src="/hero.jpg"
+    alt="Hero Image"
+    fill           // Copre tutto il contenitore
+    style={{ objectFit: 'contain', marginTop: '-7rem' }}
+    // Altrimenti potresti definire width e height fissi o "responsive".
+  />
+</div>
     </section>
   );
 }
