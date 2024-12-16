@@ -46,9 +46,9 @@ const categories: Category[] = [
     items: [
       {
         id: 201,
-        name: "MODELLO 45",
+        name: "MODELLO 45-",
         price: "€500",
-        images: ["/sediamod45.jpg", "/mod45-2.jpg"],
+        images: ["/sediamod45.jpg", "/mod45-2.jpg","/mod45-6.jpg"],
         description:
           "Sedia ergonomica per ufficio, design moderno e confortevole.",
       },
