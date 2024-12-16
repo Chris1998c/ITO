@@ -1,7 +1,7 @@
 import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ProgettiPage from './progetti/page';
+
 
 export const metadata = {
   title: 'Sito Vetrina | Arch. Alberto Perri',

@@ -1,4 +1,4 @@
-import ProgettiPage from './progetti/page';
+
 import Image from 'next/image';
 
 export default function HomePage() {

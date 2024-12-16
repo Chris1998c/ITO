@@ -4,7 +4,7 @@ export default function AboutPage() {
       <section style={{ padding: '4rem 2rem' }}>
         <h2>Chi Sono</h2>
         <p style={{ marginTop: '1rem', lineHeight: '1.6' }}>
-          Sono l'architetto Alberto Perri, specializzato nella progettazione 3D per architettura, 
+           specializzato nella progettazione 3D per architettura, 
           interior design e prototipazione digitale. Con anni di esperienza e passione 
           nel modellare e visualizzare spazi, offro servizi su misura per aziende e liberi 
           professionisti in cerca di soluzioni innovative.
