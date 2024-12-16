@@ -31,9 +31,9 @@ const categories: Category[] = [
         name: "Villa Moderna",
         price: "€2000",
         images: [
-          "/progetti/villa-moderna1.jpg",
-          "/progetti/villa-moderna2.jpg",
-          "/progetti/villa-moderna3.jpg",
+          "/images.jpg",
+          "/images.jpg",
+          "/images.jpg",
         ],
         description:
           "Un progetto di lusso per una villa moderna con ampie vetrate e design esclusivo.",
@@ -48,7 +48,7 @@ const categories: Category[] = [
         id: 201,
         name: "MODELLO 45-",
         price: "€500",
-        images: ["/sediamod45.jpg", "/mod45-2.jpg","/mod45-6.jpg"],
+        images: ["/sediamod45.jpg", "/mod45-2.jpg", "/mod45-6.jpg"],
         description:
           "Sedia ergonomica per ufficio, design moderno e confortevole.",
       },
@@ -62,7 +62,7 @@ const categories: Category[] = [
         id: 301,
         name: "Divano Relax",
         price: "€1500",
-        images: ["/progetti/divano1.jpg", "/progetti/divano2.jpg"],
+        images: ["/mod45-2.jpg", "/mod45-6.jpg"],
         description: "Divano elegante e confortevole per il tuo salotto.",
       },
     ],
@@ -211,7 +211,9 @@ export default function ProgettiPage() {
   return (
     <section className="p-8 bg-black text-white">
       <h1 className="text-3xl font-bold mb-4">I Miei Progetti</h1>
-      <p className="mb-6">Seleziona una categoria per esplorare i nostri progetti.</p>
+      <p className="mb-6">
+        Seleziona una categoria per esplorare i nostri progetti.
+      </p>
 
       {/* Menu a tendina */}
       <Menu as="div" className="relative inline-block text-left">
@@ -251,6 +253,8 @@ export default function ProgettiPage() {
                   alt={item.name}
                   width={400}
                   height={300}
+                  quality={100}
+                  unoptimized={true}
                   className="object-contain w-full h-auto"
                 />
                 <div className="p-4">
@@ -269,9 +273,9 @@ export default function ProgettiPage() {
           <div
             className="bg-gray-900 text-white rounded-lg shadow-2xl p-4 relative flex flex-col"
             style={{
-              maxWidth: "90vw",     // Massima larghezza 90% viewport
-              maxHeight: "90vh",    // Massima altezza 90% viewport
-              overflow: "auto",     // Scorrimento se l'immagine è troppo grande
+              maxWidth: "90vw",
+              maxHeight: "90vh",
+              overflow: "auto", // Scorrimento se l'immagine è troppo grande
             }}
           >
             {/* Pulsante di chiusura */}
@@ -286,13 +290,14 @@ export default function ProgettiPage() {
             <div className="w-full h-full flex items-center justify-center">
               <Slider {...settings} className="relative w-full h-full">
                 {selectedItem.images.map((img, index) => (
-                  <div key={index} className="flex items-center justify-center w-full h-full">
-                    {/* Immagine 1024×768 */}
+                  <div className="w-[1024px] h-[768px] flex items-center justify-center">
                     <Image
                       src={img}
                       alt={`${selectedItem.name} - ${index + 1}`}
-                      width={1020}
+                      width={1024}
                       height={768}
+                      quality={100}
+                      unoptimized={true}
                       className="object-contain w-full h-full"
                     />
                   </div>
