@@ -69,13 +69,14 @@ const categories: Category[] = [
   },
   {
     id: 4,
-    name: "OGGETTI PER LA CASA",
+    name: "OGGETTI PER LA CASA E CUCINA",
     items: [
       {
         id: 401,
-        name: "Decorazioni Vintage",
+        name: "Affumicatore",
         price: "€100",
-        images: ["/progetti/decorazioni1.jpg", "/progetti/decorazioni2.jpg"],
+        images: ["/AFFUMICATORE-401M.jpg","/AFFUMICATORE-401-1.jpg","/AFFUMICATORE-401-2.jpg",
+        "/AFFUMICATORE-401-3.jpg"],
         description:
           "Oggetti decorativi per dare un tocco vintage alla tua casa.",
       },
