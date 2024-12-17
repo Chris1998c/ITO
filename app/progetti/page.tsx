@@ -290,7 +290,9 @@ export default function ProgettiPage() {
             <div className="w-full h-full flex items-center justify-center">
               <Slider {...settings} className="relative w-full h-full">
                 {selectedItem.images.map((img, index) => (
-                  <div className="w-[1024px] h-[768px] flex items-center justify-center">
+                  <div
+                  key={index} 
+                  className="w-[1024px] h-[768px] flex items-center justify-center">
                     <Image
                       src={img}
                       alt={`${selectedItem.name} - ${index + 1}`}
