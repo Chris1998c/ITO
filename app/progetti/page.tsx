@@ -30,11 +30,7 @@ const categories: Category[] = [
         id: 101,
         name: "Villa Moderna",
         price: "€2000",
-        images: [
-          "/images.jpg",
-          "/images.jpg",
-          "/images.jpg",
-        ],
+        images: ["/images.jpg", "/images.jpg", "/images.jpg"],
         description:
           "Un progetto di lusso per una villa moderna con ampie vetrate e design esclusivo.",
       },
@@ -60,10 +56,31 @@ const categories: Category[] = [
     items: [
       {
         id: 301,
-        name: "Divano Relax",
+        name: "Divano Black",
         price: "€1500",
-        images: ["/mod45-2.jpg", "/mod45-6.jpg"],
-        description: "Divano elegante e confortevole per il tuo salotto.",
+        images: [
+          "/DIVANO-BLACK-M.jpg",
+          "/DIVANO-BLACK-1.jpg",
+          "/DIVANO-BLACK-2.jpg",
+          "/DIVANO-BLACK-3.jpg",
+          "/DIVANO-BLACK-4.jpg",
+          "/DIVANO-BLACK-5.jpg",
+        ],
+        description: "Divano elegante.",
+      },
+      {
+        id: 302,
+        name: "Divano Dubai",
+        price: "€1800",
+        images: [
+          "/DIVANO-DUBAI-M.jpg",
+          "/DIVANO-DUBAI-1.jpg",
+          "/DIVANO-DUBAI-2.jpg",
+          "/DIVANO-DUBAI-3.jpg",
+          "/DIVANO-DUBAI-4.jpg",
+          "/DIVANO-DUBAI-5.jpg",
+        ],
+        description: "Divano elegante e confortevole.",
       },
     ],
   },
@@ -75,8 +92,12 @@ const categories: Category[] = [
         id: 401,
         name: "Affumicatore",
         price: "€100",
-        images: ["/AFFUMICATORE-401M.jpg","/AFFUMICATORE-401-1.jpg","/AFFUMICATORE-401-2.jpg",
-        "/AFFUMICATORE-401-3.jpg"],
+        images: [
+          "/AFFUMICATORE-401M.jpg",
+          "/AFFUMICATORE-401-1.jpg",
+          "/AFFUMICATORE-401-2.jpg",
+          "/AFFUMICATORE-401-3.jpg",
+        ],
         description:
           "Oggetti decorativi per dare un tocco vintage alla tua casa.",
       },
@@ -88,10 +109,10 @@ const categories: Category[] = [
     items: [
       {
         id: 501,
-        name: "Tavolo in Legno",
+        name: "Tavolo Magnum",
         price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        images: ["/TAVOLO-MAGNUM-M.jpg", "/TAVOLO-MAGNUM-1.jpg","/TAVOLO-MAGNUM-2.jpg"],
+        description: "Tavolo artigianale.",
       },
     ],
   },
@@ -292,8 +313,9 @@ export default function ProgettiPage() {
               <Slider {...settings} className="relative w-full h-full">
                 {selectedItem.images.map((img, index) => (
                   <div
-                  key={index} 
-                  className="w-[1024px] h-[768px] flex items-center justify-center">
+                    key={index}
+                    className="w-[1024px] h-[768px] flex items-center justify-center"
+                  >
                     <Image
                       src={img}
                       alt={`${selectedItem.name} - ${index + 1}`}
