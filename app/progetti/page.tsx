@@ -273,8 +273,8 @@ export default function ProgettiPage() {
           <div
             className="bg-gray-900 text-white rounded-lg shadow-2xl p-4 relative flex flex-col"
             style={{
-              maxWidth: "90vw",
-              maxHeight: "90vh",
+              maxWidth: "840px",
+              maxHeight: "630px",
               overflow: "auto", // Scorrimento se l'immagine è troppo grande
             }}
           >
