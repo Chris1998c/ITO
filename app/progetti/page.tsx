@@ -271,7 +271,7 @@ const categories: Category[] = [
           { type: "image", src: "/LAMPADA-DA-TAVOLO-2.jpg" },
           { type: "image", src: "/LAMPADA-DA-TAVOLO-3.jpg" },
           { type: "image", src: "/LAMPADA-DA-TAVOLO-4.jpg" },
-          { type: "video", src: "/LAMPADA-DA-TAVOLO.mp4" },
+          { type: "video", src: "/LAMPADA-DA-TAVOLO.mp4"},
         ],
         description: "Lampada moderna per ambienti minimalisti.",
       },
