@@ -69,6 +69,37 @@ const categories: Category[] = [
         description:
           "Sedia ergonomica per ufficio, design moderno e confortevole.",
       },
+      {
+        id: 202,
+        name: "Sedia Flower",
+        price: "€700",
+        media: [
+          { type: "image", src: "/SEDIA-FLOWER-M.jpg" },
+          { type: "image", src: "/SEDIA-FLOWER-1.jpg" },
+          { type: "image", src: "/SEDIA-FLOWER-2.jpg" },
+          { type: "image", src: "/SEDIA-FLOWER-3.jpg" },
+        ],
+        description:
+          "Sedia ergonomica per ufficio, design moderno e confortevole.",
+      },
+      {
+        id: 203,
+        name: "Sedia Carina",
+        price: "€900",
+        media: [
+          { type: "image", src: "/SEDIA-CARINA-M.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-1.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-2.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-3.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-4.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-5.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-6.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-7.jpg" },
+          { type: "image", src: "/SEDIA-CARINA-D.jpg" },
+        ],
+        description:
+          "Sedia ergonomica per ufficio, design moderno e confortevole.",
+      },
     ],
   },
   {
@@ -164,13 +195,49 @@ const categories: Category[] = [
     items: [
       {
         id: 601,
-        name: "Bracciale Elegante",
+        name: "Anello Castle",
         price: "€800",
         media: [
-          { type: "image", src: "/gioielli1.jpg" },
-          { type: "video", src: "/videos/gioielli.mp4" },
+          { type: "image", src: "/ANELLO-CASTLE-M.jpg" },
+          { type: "image", src: "/ANELLO-CASTLE-1.jpg" },
+          { type: "image", src: "/ANELLO-CASTLE-2.jpg" },
         ],
         description: "Bracciale realizzato in oro artigianale.",
+      },
+      {
+        id: 602,
+        name: "Anello Celtico",
+        price: "€1500",
+        media: [
+          { type: "image", src: "/ANELLO-CELTICO-M.jpg" },
+          { type: "image", src: "/ANELLO-CELTICO-1.jpg" },
+          { type: "image", src: "/ANELLO-CELTICO-2.jpg" },
+        ],
+        description: "ANELLO  artigianale.",
+      },
+      {
+        id: 603,
+        name: "Anello Mappamondo",
+        price: "€500",
+        media: [
+          { type: "image", src: "/ANELLO-MAPPAMONDO-5.jpg" },
+          { type: "image", src: "/ANELLO-MAPPAMONDO-1.jpg" },
+          { type: "image", src: "/ANELLO-MAPPAMONDO-2.jpg" },
+          { type: "image", src: "/ANELLO-MAPPAMONDO-3.jpg" },
+          { type: "image", src: "/ANELLO-MAPPAMONDO-4.jpg" },
+          { type: "image", src: "/ANELLO-MAPPAMONDO-M.jpg" },
+        ],
+        description: "ANELLO  artigianale.",
+      },
+      {
+        id: 604,
+        name: "Anello Triangolo",
+        price: "€900",
+        media: [
+          { type: "image", src: "/ANELLO-TRIANGOLO-M.jpg" },
+          { type: "image", src: "/ANELLO-TRIANGOLO-1.jpg" },
+        ],
+        description: "ANELLO  artigianale.",
       },
     ],
   },
