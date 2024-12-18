@@ -5,12 +5,17 @@ import Image from "next/image";
 import { useState } from "react";
 import Slider from "react-slick";
 
-// Definizione dei tipi per TypeScript (opzionale se usi .tsx)
+// Definizione dei tipi per TypeScript
+interface Media {
+  type: "image" | "video";
+  src: string;
+}
+
 interface Item {
   id: number;
   name: string;
   price: string;
-  images: string[]; // Array di immagini per il carosello
+  media: Media[]; // Array di immagini o video
   description?: string;
 }
 
@@ -24,13 +29,24 @@ interface Category {
 const categories: Category[] = [
   {
     id: 1,
-    name: "MOBILI",
+    name: "ACCESSORI",
     items: [
       {
         id: 101,
-        name: "Villa Moderna",
-        price: "€2000",
-        images: ["/images.jpg", "/images.jpg", "/images.jpg"],
+        name: "Occhiali Da Sole",
+        price: "€200",
+        media: [
+          { type: "image", src: "/OCCHIALI-DA-SOLE-M.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-1.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-2.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-3.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-4.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-5.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-6.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-7.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-8.jpg" },
+          { type: "image", src: "/OCCHIALI-DA-SOLE-9.jpg" },
+        ],
         description:
           "Un progetto di lusso per una villa moderna con ampie vetrate e design esclusivo.",
       },
@@ -42,9 +58,14 @@ const categories: Category[] = [
     items: [
       {
         id: 201,
-        name: "MODELLO 45-",
-        price: "€500",
-        images: ["/sediamod45.jpg", "/mod45-2.jpg", "/mod45-6.jpg"],
+        name: "SEDIA EART",
+        price: "€700",
+        media: [
+          { type: "image", src: "/SEDIA-EART-M.jpg" },
+          { type: "image", src: "/SEDIA-EART-1.jpg" },
+          { type: "image", src: "/SEDIA-EART-2.jpg" },
+          { type: "image", src: "/SEDIA-EART-3.jpg" },
+        ],
         description:
           "Sedia ergonomica per ufficio, design moderno e confortevole.",
       },
@@ -58,13 +79,13 @@ const categories: Category[] = [
         id: 301,
         name: "Divano Black",
         price: "€1500",
-        images: [
-          "/DIVANO-BLACK-M.jpg",
-          "/DIVANO-BLACK-1.jpg",
-          "/DIVANO-BLACK-2.jpg",
-          "/DIVANO-BLACK-3.jpg",
-          "/DIVANO-BLACK-4.jpg",
-          "/DIVANO-BLACK-5.jpg",
+        media: [
+          { type: "image", src: "/DIVANO-BLACK-M.jpg" },
+          { type: "image", src: "/DIVANO-BLACK-1.jpg" },
+          { type: "image", src: "/DIVANO-BLACK-2.jpg" },
+          { type: "image", src: "/DIVANO-BLACK-3.jpg" },
+          { type: "image", src: "/DIVANO-BLACK-4.jpg" },
+          { type: "image", src: "/DIVANO-BLACK-5.jpg" },
         ],
         description: "Divano elegante.",
       },
@@ -72,13 +93,13 @@ const categories: Category[] = [
         id: 302,
         name: "Divano Dubai",
         price: "€1800",
-        images: [
-          "/DIVANO-DUBAI-M.jpg",
-          "/DIVANO-DUBAI-1.jpg",
-          "/DIVANO-DUBAI-2.jpg",
-          "/DIVANO-DUBAI-3.jpg",
-          "/DIVANO-DUBAI-4.jpg",
-          "/DIVANO-DUBAI-5.jpg",
+        media: [
+          { type: "image", src: "/DIVANO-DUBAI-M.jpg" },
+          { type: "image", src: "/DIVANO-DUBAI-1.jpg" },
+          { type: "image", src: "/DIVANO-DUBAI-2.jpg" },
+          { type: "image", src: "/DIVANO-DUBAI-3.jpg" },
+          { type: "image", src: "/DIVANO-DUBAI-4.jpg" },
+          { type: "image", src: "/DIVANO-DUBAI-5.jpg" },
         ],
         description: "Divano elegante e confortevole.",
       },
@@ -92,11 +113,11 @@ const categories: Category[] = [
         id: 401,
         name: "Affumicatore",
         price: "€100",
-        images: [
-          "/AFFUMICATORE-401M.jpg",
-          "/AFFUMICATORE-401-1.jpg",
-          "/AFFUMICATORE-401-2.jpg",
-          "/AFFUMICATORE-401-3.jpg",
+        media: [
+          { type: "image", src: "/AFFUMICATORE-401M.jpg" },
+          { type: "image", src: "/AFFUMICATORE-401-1.jpg" },
+          { type: "image", src: "/AFFUMICATORE-401-2.jpg" },
+          { type: "image", src: "/AFFUMICATORE-401-3.jpg" },
         ],
         description:
           "Oggetti decorativi per dare un tocco vintage alla tua casa.",
@@ -111,8 +132,29 @@ const categories: Category[] = [
         id: 501,
         name: "Tavolo Magnum",
         price: "€1200",
-        images: ["/TAVOLO-MAGNUM-M.jpg", "/TAVOLO-MAGNUM-1.jpg","/TAVOLO-MAGNUM-2.jpg"],
+        media: [
+          { type: "image", src: "/TAVOLO-MAGNUM-M.jpg" },
+          { type: "image", src: "/TAVOLO-MAGNUM-1.jpg" },
+          { type: "image", src: "/TAVOLO-MAGNUM-2.jpg" },
+        ],
         description: "Tavolo artigianale.",
+      },
+      {
+        id: 502,
+        name: "Tavolo Deco",
+        price: "€1500",
+        media: [
+          { type: "image", src: "/TAVOLO-DECO-M.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-1.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-2.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-3.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-4.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-5.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-6.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-7.jpg" },
+          { type: "image", src: "/TAVOLO-DECO-D.jpg" },
+        ],
+        description: "Tavolo Deco.",
       },
     ],
   },
@@ -122,10 +164,13 @@ const categories: Category[] = [
     items: [
       {
         id: 601,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "Bracciale Elegante",
+        price: "€800",
+        media: [
+          { type: "image", src: "/gioielli1.jpg" },
+          { type: "video", src: "/videos/gioielli.mp4" },
+        ],
+        description: "Bracciale realizzato in oro artigianale.",
       },
     ],
   },
@@ -135,10 +180,13 @@ const categories: Category[] = [
     items: [
       {
         id: 701,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "Valigia Premium",
+        price: "€1500",
+        media: [
+          { type: "image", src: "/borsa1.jpg" },
+          { type: "video", src: "/videos/valigia.mp4" },
+        ],
+        description: "Valigia premium per viaggi eleganti.",
       },
     ],
   },
@@ -148,10 +196,17 @@ const categories: Category[] = [
     items: [
       {
         id: 801,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "Lampada Da Tavolo",
+        price: "€400",
+        media: [
+          { type: "image", src: "/LAMPADA-DA-TAVOLO-M.jpg" },
+          { type: "image", src: "/LAMPADA-DA-TAVOLO-1.jpg" },
+          { type: "image", src: "/LAMPADA-DA-TAVOLO-2.jpg" },
+          { type: "image", src: "/LAMPADA-DA-TAVOLO-3.jpg" },
+          { type: "image", src: "/LAMPADA-DA-TAVOLO-4.jpg" },
+          { type: "video", src: "/LAMPADA-DA-TAVOLO.mp4" },
+        ],
+        description: "Lampada moderna per ambienti minimalisti.",
       },
     ],
   },
@@ -161,10 +216,13 @@ const categories: Category[] = [
     items: [
       {
         id: 901,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "Confezione Regalo",
+        price: "€50",
+        media: [
+          { type: "image", src: "/pakaging1.jpg" },
+          { type: "video", src: "/videos/pakaging.mp4" },
+        ],
+        description: "Confezione regalo personalizzabile.",
       },
     ],
   },
@@ -174,10 +232,22 @@ const categories: Category[] = [
     items: [
       {
         id: 1001,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "Posate Wire",
+        price: "€300",
+        media: [
+          { type: "image", src: "/POSATERIA-W-M.jpg" },
+          { type: "image", src: "/POSATERIA-W-1.jpg" },
+          { type: "image", src: "/POSATERIA-W-2.jpg" },
+          { type: "image", src: "/POSATERIA-W-3.jpg" },
+          { type: "image", src: "/POSATERIA-W-4.jpg" },
+          { type: "image", src: "/POSATERIA-W-5.jpg" },
+          { type: "image", src: "/POSATERIA-W-6.jpg" },
+          { type: "image", src: "/POSATERIA-W-7.jpg" },
+          { type: "image", src: "/POSATERIA-W-8.jpg" },
+          { type: "image", src: "/POSATERIA-W-9.jpg" },
+          { type: "image", src: "/POSATERIA-W-10.jpg" },
+        ],
+        description: "Set completo di piatti artigianali.",
       },
     ],
   },
@@ -187,10 +257,13 @@ const categories: Category[] = [
     items: [
       {
         id: 1101,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "Yacht di Lusso",
+        price: "€1,000,000",
+        media: [
+          { type: "image", src: "/yacht1.jpg" },
+          { type: "video", src: "/videos/yacht.mp4" },
+        ],
+        description: "Yacht di lusso per viaggi esclusivi.",
       },
     ],
   },
@@ -200,10 +273,13 @@ const categories: Category[] = [
     items: [
       {
         id: 1201,
-        name: "Tavolo in Legno",
-        price: "€1200",
-        images: ["/progetti/tavolo1.jpg", "/progetti/tavolo2.jpg"],
-        description: "Tavolo artigianale in legno massello.",
+        name: "PC Custom",
+        price: "€2500",
+        media: [
+          { type: "image", src: "/pc-custom.jpg" },
+          { type: "video", src: "/videos/pc-custom.mp4" },
+        ],
+        description: "PC personalizzato per performance elevate.",
       },
     ],
   },
@@ -212,15 +288,10 @@ const categories: Category[] = [
 export default function ProgettiPage() {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
-  const openModal = (item: Item) => {
-    setSelectedItem(item);
-  };
+  const openModal = (item: Item) => setSelectedItem(item);
+  const closeModal = () => setSelectedItem(null);
 
-  const closeModal = () => {
-    setSelectedItem(null);
-  };
-
-  // Configurazione del carosello (slick)
+  // Configurazione del carosello
   const settings = {
     dots: true,
     infinite: true,
@@ -269,14 +340,12 @@ export default function ProgettiPage() {
                 className="bg-gray-900 rounded-lg overflow-hidden shadow-lg cursor-pointer hover:shadow-xl"
                 onClick={() => openModal(item)}
               >
-                {/* MINIATURA (400×300) */}
                 <Image
-                  src={item.images[0]}
+                  src={item.media[0].src}
                   alt={item.name}
                   width={400}
                   height={300}
                   quality={100}
-                  unoptimized={true}
                   className="object-contain w-full h-auto"
                 />
                 <div className="p-4">
@@ -294,11 +363,7 @@ export default function ProgettiPage() {
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
           <div
             className="bg-gray-900 text-white rounded-lg shadow-2xl p-4 relative flex flex-col"
-            style={{
-              maxWidth: "840px",
-              maxHeight: "630px",
-              overflow: "auto", // Scorrimento se l'immagine è troppo grande
-            }}
+            style={{ maxWidth: "840px", maxHeight: "630px" }}
           >
             {/* Pulsante di chiusura */}
             <button
@@ -308,27 +373,31 @@ export default function ProgettiPage() {
               ✕
             </button>
 
-            {/* Carosello delle immagini */}
-            <div className="w-full h-full flex items-center justify-center">
-              <Slider {...settings} className="relative w-full h-full">
-                {selectedItem.images.map((img, index) => (
-                  <div
-                    key={index}
-                    className="w-[1024px] h-[768px] flex items-center justify-center"
-                  >
+            {/* Carosello con immagini e video */}
+            <Slider {...settings} className="relative w-full h-full">
+              {selectedItem.media.map((media, index) => (
+                <div
+                  key={index}
+                  className="w-full h-full flex items-center justify-center"
+                >
+                  {media.type === "video" ? (
+                    <video controls className="w-full h-full object-contain">
+                      <source src={media.src} type="video/mp4" />
+                      Il tuo browser non supporta il formato video.
+                    </video>
+                  ) : (
                     <Image
-                      src={img}
+                      src={media.src}
                       alt={`${selectedItem.name} - ${index + 1}`}
                       width={1024}
                       height={768}
                       quality={100}
-                      unoptimized={true}
                       className="object-contain w-full h-full"
                     />
-                  </div>
-                ))}
-              </Slider>
-            </div>
+                  )}
+                </div>
+              ))}
+            </Slider>
 
             {/* Dettagli del progetto */}
             <div className="text-center mt-4">
