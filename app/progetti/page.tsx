@@ -251,7 +251,7 @@ const categories: Category[] = [
         price: "€1500",
         media: [
           { type: "image", src: "/borsa1.jpg" },
-          { type: "video", src: "/videos/valigia.mp4" },
+          { type: "video", src: "/videos/valigia1.mp4" },
         ],
         description: "Valigia premium per viaggi eleganti.",
       },
